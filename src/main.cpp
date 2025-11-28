@@ -70,205 +70,90 @@ void stopAccessPoint() {
 
 // Pagina HTML principale
 String getHTML() {
-  String html = R"(
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tracker WiFi Config</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    .container {
-      background: white;
-      border-radius: 20px;
-      padding: 30px;
-      max-width: 500px;
-      width: 100%;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-    h1 {
-      color: #333;
-      margin-bottom: 10px;
-      font-size: 24px;
-    }
-    .info {
-      background: #f0f4ff;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      font-size: 14px;
-      color: #666;
-    }
-    .section {
-      margin-bottom: 25px;
-    }
-    h2 {
-      color: #667eea;
-      margin-bottom: 15px;
-      font-size: 18px;
-      border-bottom: 2px solid #667eea;
-      padding-bottom: 5px;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-      color: #555;
-      font-weight: bold;
-    }
-    input[type="text"], input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-size: 14px;
-      transition: border 0.3s;
-    }
-    input[type="text"]:focus, input[type="password"]:focus {
-      outline: none;
-      border-color: #667eea;
-    }
-    .checkbox-group {
-      background: #f9f9f9;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-    .checkbox-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .checkbox-item:last-child {
-      margin-bottom: 0;
-    }
-    input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-      cursor: pointer;
-    }
-    button {
-      width: 100%;
-      padding: 12px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    button:hover {
-      transform: translateY(-2px);
-    }
-    button:active {
-      transform: translateY(0);
-    }
-    .status {
-      text-align: center;
-      margin-top: 15px;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 14px;
-    }
-    .success {
-      background: #d4edda;
-      color: #155724;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>🔧 Tracker WiFi Config</h1>
-    <div class="info">
-      IP: )";
+  String html = "<!DOCTYPE html><html><head>";
+  html += "<meta charset='UTF-8'>";
+  html += "<meta name='viewport' content='width=device-width, initial-scale=1.0'>";
+  html += "<title>Tracker WiFi Config</title>";
+  html += "<style>";
+  html += "* { margin: 0; padding: 0; box-sizing: border-box; }";
+  html += "body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }";
+  html += ".container { background: white; border-radius: 20px; padding: 30px; max-width: 500px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }";
+  html += "h1 { color: #333; margin-bottom: 10px; font-size: 24px; }";
+  html += ".info { background: #f0f4ff; padding: 15px; border-radius: 10px; margin-bottom: 20px; font-size: 14px; color: #666; }";
+  html += ".section { margin-bottom: 25px; }";
+  html += "h2 { color: #667eea; margin-bottom: 15px; font-size: 18px; border-bottom: 2px solid #667eea; padding-bottom: 5px; }";
+  html += "label { display: block; margin-bottom: 5px; color: #555; font-weight: bold; }";
+  html += "input[type='text'], input[type='password'] { width: 100%; padding: 10px; margin-bottom: 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 14px; }";
+  html += "input[type='text']:focus, input[type='password']:focus { outline: none; border-color: #667eea; }";
+  html += ".checkbox-group { background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 10px; }";
+  html += ".checkbox-item { display: flex; align-items: center; margin-bottom: 10px; }";
+  html += ".checkbox-item:last-child { margin-bottom: 0; }";
+  html += "input[type='checkbox'] { width: 20px; height: 20px; margin-right: 10px; cursor: pointer; }";
+  html += "button { width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }";
+  html += "button:hover { transform: translateY(-2px); }";
+  html += ".status { text-align: center; margin-top: 15px; padding: 10px; border-radius: 8px; font-size: 14px; background: #d4edda; color: #155724; }";
+  html += "</style></head><body>";
+
+  html += "<div class='container'>";
+  html += "<h1>Tracker WiFi Config</h1>";
+  html += "<div class='info'>IP: ";
   html += WiFi.softAPIP().toString();
-  html += R"( | Timeout: 60s inattività
-    </div>
+  html += " | Timeout: 60s inattivita</div>";
 
-    <div class="section">
-      <h2>📡 Credenziali Hotspot</h2>
-      <form action="/save" method="POST">
-        <label>Nome Rete (SSID):</label>
-        <input type="text" name="ssid" value=")";
+  // Sezione credenziali
+  html += "<div class='section'><h2>Credenziali Hotspot</h2>";
+  html += "<form action='/save' method='POST'>";
+  html += "<label>Nome Rete (SSID):</label>";
+  html += "<input type='text' name='ssid' value='";
   html += apSSID;
-  html += R"(" required>
-
-        <label>Password:</label>
-        <input type="password" name="password" value=")";
+  html += "' required>";
+  html += "<label>Password:</label>";
+  html += "<input type='password' name='password' value='";
   html += apPassword;
-  html += R"(" required minlength="8">
+  html += "' required minlength='8'>";
+  html += "<button type='submit'>Salva Credenziali</button>";
+  html += "</form></div>";
 
-        <button type="submit">💾 Salva Credenziali</button>
-      </form>
-    </div>
-
-    <div class="section">
-      <h2>🔔 Monitoraggio Connessioni</h2>
-      <div class="checkbox-group">
-        <div class="checkbox-item">
-          <input type="checkbox" id="wifiMon" )";
-  if (monitorWiFi) html += "checked";
-  html += R"( onchange="toggleMonitor('wifi', this.checked)">
-          <label for="wifiMon">Monitora WiFi - Buzzer se client si disconnette</label>
-        </div>
-        <div class="checkbox-item">
-          <input type="checkbox" id="btMon" )";
-  if (monitorBT) html += "checked";
-  html += R"( onchange="toggleMonitor('bt', this.checked)">
-          <label for="btMon">Monitora Bluetooth - Buzzer se dispositivo si disconnette</label>
-        </div>
-      </div>
-      <div class="status success">
-        WiFi Clients: <span id="wifiCount">0</span> | BT: <span id="btStatus">)";
+  // Sezione monitoraggio
+  html += "<div class='section'><h2>Monitoraggio Connessioni</h2>";
+  html += "<div class='checkbox-group'>";
+  html += "<div class='checkbox-item'>";
+  html += "<input type='checkbox' id='wifiMon' ";
+  if (monitorWiFi) html += "checked ";
+  html += "onchange='toggleMonitor(\"wifi\", this.checked)'>";
+  html += "<label for='wifiMon'>Monitora WiFi - Buzzer se client si disconnette</label>";
+  html += "</div>";
+  html += "<div class='checkbox-item'>";
+  html += "<input type='checkbox' id='btMon' ";
+  if (monitorBT) html += "checked ";
+  html += "onchange='toggleMonitor(\"bt\", this.checked)'>";
+  html += "<label for='btMon'>Monitora Bluetooth - Buzzer se dispositivo si disconnette</label>";
+  html += "</div></div>";
+  html += "<div class='status'>WiFi Clients: <span id='wifiCount'>0</span> | BT: <span id='btStatus'>";
   html += lastBTConnected ? "Connesso" : "Disconnesso";
-  html += R"(</span>
-      </div>
-    </div>
+  html += "</span></div></div>";
 
-    <div class="section">
-      <button onclick="testBuzzer()">🔊 Test Buzzer</button>
-    </div>
-  </div>
+  // Test buzzer
+  html += "<div class='section'><button onclick='testBuzzer()'>Test Buzzer</button></div>";
+  html += "</div>";
 
-  <script>
-    function toggleMonitor(type, enabled) {
-      fetch('/monitor?type=' + type + '&enabled=' + (enabled ? '1' : '0'))
-        .then(r => r.text())
-        .then(data => console.log(data));
-    }
+  // JavaScript
+  html += "<script>";
+  html += "function toggleMonitor(type, enabled) {";
+  html += "  fetch('/monitor?type=' + type + '&enabled=' + (enabled ? '1' : '0'))";
+  html += "    .then(r => r.text()).then(data => console.log(data));";
+  html += "}";
+  html += "function testBuzzer() {";
+  html += "  fetch('/buzz').then(r => r.text()).then(data => alert('Buzzer testato!'));";
+  html += "}";
+  html += "setInterval(function() {";
+  html += "  fetch('/status').then(r => r.json()).then(data => {";
+  html += "    document.getElementById('wifiCount').textContent = data.wifiClients;";
+  html += "    document.getElementById('btStatus').textContent = data.btConnected ? 'Connesso' : 'Disconnesso';";
+  html += "  });";
+  html += "}, 2000);";
+  html += "</script></body></html>";
 
-    function testBuzzer() {
-      fetch('/buzz')
-        .then(r => r.text())
-        .then(data => alert('Buzzer testato!'));
-    }
-
-    // Auto-refresh status ogni 2 secondi
-    setInterval(() => {
-      fetch('/status')
-        .then(r => r.json())
-        .then(data => {
-          document.getElementById('wifiCount').textContent = data.wifiClients;
-          document.getElementById('btStatus').textContent = data.btConnected ? 'Connesso' : 'Disconnesso';
-        });
-    }, 2000);
-  </script>
-</body>
-</html>
-)";
   return html;
 }
 
